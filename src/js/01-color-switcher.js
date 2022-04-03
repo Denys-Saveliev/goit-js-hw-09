@@ -14,8 +14,9 @@ startBtnRef.addEventListener("click", () => {
 
 
 stopBtnRef.addEventListener("click", () => {
-   stopBtnRef.removeAttribute('disabled');
-   startBtnRef.setAttribute('disabled', '');   
+   stopBtnRef.setAttribute('disabled', '');    
+   startBtnRef.removeAttribute('disabled');
+     
   clearInterval(timerId);  
 });
 
