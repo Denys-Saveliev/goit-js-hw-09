@@ -24,6 +24,10 @@ img {
    width: 226px;
 }
 
+[data-start]:hover {
+   cursor: pointer;
+}
+
 .timer {
    display: flex;
    margin: auto;
