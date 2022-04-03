@@ -5,4 +5,4 @@ var t,o=arguments[3];!function(o,i){"function"==typeof t&&t.amd?t([],function(){
 },{}],"GyVV":[function(require,module,exports) {
 "use strict";var e=require("notiflix/build/notiflix-notify-aio");const t=document.querySelector(".form");function n(e,t){const n=Math.random()>.3;return new Promise((i,s)=>{setTimeout(()=>{n?i({position:e,delay:t}):s({position:e,delay:t})},t)})}function i(i){i.preventDefault();const s=parseInt(t.elements.delay.value),l=parseInt(t.elements.step.value),o=parseInt(t.elements.amount.value);let a=s;for(let t=1;t<=o;t+=1)n(t,a).then(({position:t,delay:n})=>e.Notify.success(`Fulfilled promise ${t} in ${n}ms`)).catch(({position:t,delay:n})=>e.Notify.failure(`Rejected promise ${t} in ${n}ms`)),a+=l}t.addEventListener("input",e=>{t.elements.delay.value&&t.elements.step.value&&t.elements.amount.value?t.elements.submit.removeAttribute("disabled"):t.elements.submit.setAttribute("disabled","")}),t.addEventListener("submit",i);
 },{"notiflix/build/notiflix-notify-aio":"MeeU"}]},{},["GyVV"], null)
-//# sourceMappingURL=/parcel-project-template/03-promises.34a07a30.js.map
+//# sourceMappingURL=/goit-js-hw-09/03-promises.34a07a30.js.map
