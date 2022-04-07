@@ -1,18 +1,21 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const formRef = document.querySelector('.form');
+const refs = {
+   formRef: document.querySelector('.form'),
+   btnRef: document.querySelector('.btn'),
+}
 
-formRef.addEventListener('input', e => {
-  if (
-    !formRef.elements.delay.value ||
-    !formRef.elements.step.value ||
-    !formRef.elements.amount.value
-  ) {
-    formRef.elements.submit.setAttribute('disabled', '');
-  } else formRef.elements.submit.removeAttribute('disabled');
+refs.btnRef.setAttribute('disabled', '');
+
+refs.formRef.addEventListener('input', e => {
+  if (refs.formRef.elements.delay.value &&
+    refs.formRef.elements.step.value &&
+    refs.formRef.elements.amount.value) {
+    refs.btnRef.removeAttribute('disabled');
+  } 
 });
 
-formRef.addEventListener('submit', runPromiseCreation);
+refs.formRef.addEventListener('submit', runPromiseCreation);
 
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
@@ -29,9 +32,9 @@ function createPromise(position, delay) {
 
 function runPromiseCreation(e) {
   e.preventDefault();
-  const firstDelay = parseInt(formRef.elements.delay.value);
-  const delayStep = parseInt(formRef.elements.step.value);
-  const promiseAmount = parseInt(formRef.elements.amount.value);
+  const firstDelay = parseInt(refs.formRef.elements.delay.value);
+  const delayStep = parseInt(refs.formRef.elements.step.value);
+  const promiseAmount = parseInt(refs.formRef.elements.amount.value);
   let delay = firstDelay;
   for (let i = 1; i <= promiseAmount; i += 1) {
     createPromise(i, delay)
